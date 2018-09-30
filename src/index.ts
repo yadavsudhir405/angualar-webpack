@@ -1,9 +1,13 @@
-import  $ from  "jquery";
-class Demo {
-    public message(): string {
-        return "App is loaded!!!"
-    }
-}
-console.log(new Demo().message());
+import "zone.js"
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-$('#dummyButton').on('click', () => alert('You have clicked me'));
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+
+if (environment.production) {
+    enableProdMode();
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+    .catch(err => console.log(err));

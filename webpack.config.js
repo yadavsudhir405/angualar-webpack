@@ -3,26 +3,30 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 
 const entry = {
-    app: "./src/index.ts"
+    app: "./src/index.ts",
 };
 const  output = {
     filename: '[name].js',
+    chunkFilename: '[id].chunk.js',
     path: path.resolve(__dirname, 'dist')
 
 };
 const rules = [
     {
         test : /\.tsx?$/,
-        use: 'ts-loader',
+        use: ['awesome-typescript-loader', 'angular2-template-loader'],
         exclude: /node_modules/
+    },
+    {
+        test:/\.html$/,
+        use: 'html-loader',
+        exclude: path.resolve(__dirname,"src/index.html")
     }
 ];
 const plugins = [
     new HtmlWebpackPlugin({
         minify: false,
-        template: path.resolve(__dirname, "src/index.html"),
-        inject: 'body',
-        hash: false
+        template: path.resolve(__dirname, "src/index.html")
     })
 ];
 const config = {
