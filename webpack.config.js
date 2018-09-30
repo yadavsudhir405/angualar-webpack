@@ -5,11 +5,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const entry = {
     app: "./src/index.ts",
 };
-const  output = {
+iconst  output = {
     filename: '[name].js',
     chunkFilename: '[id].chunk.js',
     path: path.resolve(__dirname, 'dist')
-
 };
 const rules = [
     {
