@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const entry = {
     app: "./src/index.ts",
 };
-iconst  output = {
+const  output = {
     filename: '[name].js',
     chunkFilename: '[id].chunk.js',
     path: path.resolve(__dirname, 'dist')
