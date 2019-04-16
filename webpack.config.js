@@ -18,8 +18,21 @@ const rules = [
     },
     {
         test:/\.html$/,
-        use: 'html-loader',
+        use:{
+            loader: 'html-loader',
+        },
         exclude: path.resolve(__dirname,"src/index.html")
+    },
+    {
+        test: /\.(jpg|png)$/,
+        use:[
+            {
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[ext]',
+                }
+            }
+        ],
     }
 ];
 const plugins = [
